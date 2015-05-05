@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="page-header">
+        <h1>Actors <small>add a new actor from your movies</small></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-9">
+        <form class="form-horizontal" data-ng-submit="vm.create()" name="vm.actorForm">
+            <div class="form-group">
+                <label class="col-lg-4 control-label">
+                    Image
+                </label>
+                <div class="col-lg-5">
+                    <input type="file" ng-image data-ng-model="vm.actor.image" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="firstName" class="col-lg-4 control-label">
+                    First Name
+                </label>
+                <div class="col-lg-5">
+                    <input type="text" class="input-sm form-control" data-ng-model="vm.actor.firstName" name="firstName" id="firstName" data-ng-required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="col-lg-4 control-label">
+                    Last Name
+                </label>
+                <div class="col-lg-5">
+                    <input type="text" class="input-sm form-control" data-ng-model="vm.actor.lastName" name="lastName" id="lastName" data-ng-required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birthDate" class="col-lg-4 control-label">
+                    Birth Date
+                </label>
+                <div class="col-lg-5">
+                    <input class="form-control input-sm" ui-date="vm.dateOptions" ng-model="vm.actor.birthDate" data-ng-required="true" name="birthDate" id="birthDate">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender" class="col-lg-4 control-label">
+                    Gender
+                </label>
+                <div class="col-lg-5">
+                    <ui-select ng-model="vm.actor.gender" theme="bootstrap" title="Choose person gender" data-ng-required="true">
+                        <ui-select-match  placeholder="Select gender...">{{$select.selected.label}}</ui-select-match>
+                        <ui-select-choices repeat="gender.value as gender in vm.genders">
+                            {{gender.label}}
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit" data-ng-disabled="vm.actorForm.$invalid" data-ng-bind="vm.actor.id ? 'Update' : 'Create'"></button>
+                <a class="btn btn-danger" href="#/actors">Cancel</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-3">
+        <img ng-src="{{vm.actor.image}}" style="height: 100%; width: 100%;">
+    </div>
+</div>
+<div class="row">
+
+</div>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html data-ng-app="com.ec.jobsity.angularchallange">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Movie Database</title>
+
+    <!--Twitter Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.11.2/select.min.css">
+    <!--<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.bootstrap3.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.min.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-static-top navbar-inverse" data-ng-controller="IndexController as vm">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">Movie Database</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li data-ng-class="{ active: vm.isActiveLink('/') }"><a href="#/">Movies</a></li>
+                <li><a href="#/actors" data-ng-class="{ active: vm.isActiveLink('/actors') }">Actors</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <div class="input-group">
+                    <input type="text" class="form-control" data-ng-model="term" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <a href="#/search?term={{term}}" class="btn btn-primary">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div data-ng-view></div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
+
+<!--Angular UI Components-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-date/0.0.7/date.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.11.2/select.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.min.js"></script>
+
+
+<!-- Store -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/amplifyjs/1.1.2/amplify.core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/amplifyjs/1.1.2/amplify.store.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chance/0.5.6/chance.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/0.5.7/lunr.min.js"></script>
+
+<script src="vendor/load-image.all.min.js"></script>
+<script src="vendor/xybrid/ControllerAnnotation.js"></script>
+<script src="vendor/xybrid/ServiceAnnotation.js"></script>
+<script src="vendor/xybrid/ModelAnnotation.js"></script>
+
+<script src="domain/AbstractModel.js"></script>
+<script src="domain/Person.js"></script>
+<script src="domain/Movie.js"></script>
+<script src="domain/Genre.js"></script>
+<!-- <script src="domain/bundle/models.js"></script> -->
+
+<script src="controllers/IndexController.js"></script>
+<script src="controllers/HomeController.js"></script>
+<script src="controllers/MovieController.js"></script>
+<script src="controllers/ActorController.js"></script>
+<script src="controllers/SearchController.js"></script>
+<!-- <script src="controllers/bundle/controllers.js"></script> -->
+
+
+<script src="services/persistence/StorageService.js"></script>
+<script src="services/utils/EnumService.js"></script>
+<script src="services/notification/NotificationService.js"></script>
+<script src="services/indexing/IndexingService.js"></script>
+<!-- <script src="services/bundle/services.js"></script> -->
+
+<script src="directives/ImageConvert.js"></script>
+<script src="directives/bundle/bundle.js"></script>
+
+
+<script src="index.js"></script>
+<script src="routing.js"></script>
+
+</body>
+</html>

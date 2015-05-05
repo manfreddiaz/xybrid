@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="page-header">
+        <h1>Movie <small>details</small>
+            <div class="pull-right" data-ng-if="vm.actors.length > 0">
+                <a class="btn btn-success" href="#/actor/create">
+                    <i class="fa fa-plus-circle"></i> &nbsp;
+                    Add one
+                </a>
+            </div>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-lg-push-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Actor Record
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <img data-ng-src="{{vm.actor.image}}" style="height: 100%; width: 100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label class="text-gray">Name</label>
+                        <div>
+                           {{vm.actor.firstName}}&nbsp;{{vm.actor.lastName}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label class="text-gray">Birthday</label>
+                        <div>
+                            {{vm.actor.birthDate | date}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label class="text-gray">Gender</label>
+                        <div>
+                            {{vm.actor.gender}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label class="text-gray">Role: Actor</label>
+                        <div data-ng-repeat="movie in vm.actor.actedMovies">
+                            <a href="#/movie/show/{{movie.id}}" data-ng-bind="movie.name"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label class="text-gray">Role: Director</label>
+                        <div data-ng-repeat="movie in vm.actor.directedMovies">
+                            <a href="#/movie/show/{{movie.id}}" data-ng-bind="movie.name"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="text-right">
+                    <a class="btn btn-sm btn-info" href="#/actor/edit/{{vm.actor.id}}">
+                        <i class="fa fa-fw fa-edit"></i>
+                    </a>
+                    <button class="btn btn-sm btn-danger" data-ng-click="vm.delete()">
+                        <i class="fa fa-fw fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <toaster-container toaster-options="{'position-class': 'toast-top-full-width'}"></toaster-container>
+</div>

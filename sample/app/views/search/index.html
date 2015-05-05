@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="page-header">
+        <h1>Search results for <small>"{{vm.term}}"</small></h1>
+    </div>
+</div>
+<div class="row">
+    <div data-ng-repeat="result in vm.results">
+        <div data-ng-if="result.type == 'Person'">
+            <div data-ng-include data-src="'views/actor/_details.html'" data-ng-init="actor = result"></div>
+        </div>
+        <div data-ng-if="result.type == 'Movie'">
+            <div data-ng-include data-src="'views/movie/_details.html'" data-ng-init="movie = result"></div>
+        </div>
+    </div>
+</div>

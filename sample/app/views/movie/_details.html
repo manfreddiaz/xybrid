@@ -1,0 +1,59 @@
+<div class="col-lg-4 col-md-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <i class="fa fa-film"></i> &nbsp;
+            <a class="text-primary bg-primary" href="#/movie/show/{{movie.id}}">
+                {{movie.name}}&nbsp;<small>({{movie.releaseYear}})</small>
+            </a>
+            <div class="pull-right">
+                <rating data-ng-model="movie.rating" max="5" readonly="true"></rating>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <img data-ng-src="{{movie.image}}" style="height: 100%; width: 100%">
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    <div>{{movie.description}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="text-gray">Cast</label>
+                    <div>
+                                <span data-ng-repeat="actor in movie.cast">
+                                    <a href="#/actor/show/{{actor.id}}">{{actor.firstName}}&nbsp;{{actor.lastName}},</a>
+                                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="text-gray">Directors</label>
+                    <div>
+                                <span data-ng-repeat="director in movie.directors">
+                                    <a href="#/actor/show/{{director.id}}">{{director.firstName}}&nbsp;{{director.lastName}}&nbsp;</a>
+                                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="text-gray">Genres</label>
+                    <div>
+                        <span data-ng-repeat="genre in movie.genres">{{genre}}&nbsp;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="text-gray">Sales</label>
+                    <div>{{movie.grossIncome | currency}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+    </div>
+</div>

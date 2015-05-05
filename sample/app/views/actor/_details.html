@@ -1,0 +1,51 @@
+<div class="col-lg-4 col-md-4 col-sm-4 col-md-4">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <i class="fa fa-user"></i> &nbsp;
+            <a class="text-success bg-success" href="#/actor/show/{{actor.id}}">
+                {{actor.firstName}}&nbsp;{{actor.lastName}}
+            </a>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <img data-ng-src="{{actor.image}}" style="height: 100%; width: 100%">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="text-gray">Birthday</label>
+                    <div>
+                        {{actor.birthDate | date}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="text-gray">Gender</label>
+                    <div>
+                        {{actor.gender}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="text-gray">Role: Actor</label>
+                    <div data-ng-repeat="movie in actor.actedMovies">
+                        <a href="#/movie/show/{{movie.id}}" data-ng-bind="movie.name"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="text-gray">Role: Director</label>
+                    <div data-ng-repeat="movie in actor.directedMovies">
+                        <a href="#/movie/show/{{movie.id}}" data-ng-bind="movie.name"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+    </div>
+</div>

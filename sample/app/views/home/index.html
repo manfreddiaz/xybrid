@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="page-header">
+        <h1>Movies <small>recently added</small>
+            <div class="pull-right" data-ng-if="vm.movies.length > 0">
+                <a class="btn btn-primary" href="#/movie/create">
+                    <i class="fa fa-plus-circle"></i> &nbsp;
+                    Add one
+                </a>
+            </div>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12" data-ng-if="vm.movies.length == 0">
+        <div class="text-center">
+            <h3>There are no movies in database</h3>
+            <h4>
+                <a class="btn btn-primary" href="#/movie/create">Add one</a>
+            </h4>
+        </div>
+    </div>
+    <div data-ng-repeat="movie in vm.movies">
+        <div data-ng-include src="'views/movie/_details.html'">
+
+        </div>
+    </div>
+</div>

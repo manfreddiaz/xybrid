@@ -1,0 +1,47 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "!./node_modules/**/*.ts"
+    ],
+    "files": [
+        "./app/controllers/ActorController.ts",
+        "./app/controllers/HomeController.ts",
+        "./app/controllers/IndexController.ts",
+        "./app/controllers/MovieController.ts",
+        "./app/controllers/SearchController.ts",
+        "./app/directives/ImageConvert.ts",
+        "./app/directives/bundle/bundle.ts",
+        "./app/domain/AbstractModel.ts",
+        "./app/domain/Genre.ts",
+        "./app/domain/Movie.ts",
+        "./app/domain/Person.ts",
+        "./app/index.ts",
+        "./app/routing.ts",
+        "./app/services/indexing/IndexingService.ts",
+        "./app/services/notification/NotificationService.ts",
+        "./app/services/persistence/StorageService.ts",
+        "./app/services/utils/EnumService.ts",
+        "./app/vendor/xybrid/ApplicationAnnotation.ts",
+        "./app/vendor/xybrid/ControllerAnnotation.ts",
+        "./app/vendor/xybrid/DependsOnAnnotation.ts",
+        "./app/vendor/xybrid/InjectAnnotation.ts",
+        "./app/vendor/xybrid/ModelAnnotation.ts",
+        "./app/vendor/xybrid/ServiceAnnotation.ts",
+        "./lib/typings/amplifyjs/amplifyjs.d.ts",
+        "./lib/typings/angularjs/angular-route.d.ts",
+        "./lib/typings/angularjs/angular.d.ts",
+        "./lib/typings/chance/chance.d.ts",
+        "./lib/typings/def.d.ts",
+        "./lib/typings/jquery/jquery.d.ts",
+        "./lib/typings/loadImage/loadImage.d.ts",
+        "./lib/typings/lunr/lunr.d.ts"
+    ]
+}

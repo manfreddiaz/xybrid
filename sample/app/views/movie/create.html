@@ -1,0 +1,124 @@
+<div class="row">
+    <div class="page-header">
+        <h1>Movies
+            <small>add a new movie</small>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-9">
+        <form class="form-horizontal" data-ng-submit="vm.create()" name="vm.movieForm">
+
+            <div class="form-group">
+                <label class="col-lg-4 control-label">
+                    Image
+                </label>
+
+                <div class="col-lg-5">
+                    <input type="file" ng-image data-ng-model="vm.movie.image" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="col-lg-4 control-label">
+                    Title
+                </label>
+
+                <div class="col-lg-5">
+                    <input type="text" class="input-sm form-control" data-ng-model="vm.movie.name" name="name" id="name"
+                           data-ng-required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-lg-4 control-label">
+                    Description
+                </label>
+
+                <div class="col-lg-5">
+                    <textarea class="input-sm form-control" data-ng-model="vm.movie.description" name="description"
+                              id="description" data-ng-required="true"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="genres" class="col-lg-4 control-label">
+                    Genres
+                </label>
+
+                <div class="col-lg-5">
+                    <ui-select multiple ng-model="vm.movie.genres" theme="bootstrap" title="Choose movie genres"
+                               name="genres" id="genres" reset-search-input="true">
+                        <ui-select-match placeholder="Select genres...">{{$item.label}}</ui-select-match>
+                        <ui-select-choices repeat="genre.value as genre in vm.genres">
+                            {{genre.label}}
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cast" class="col-lg-4 control-label">
+                    Cast
+                </label>
+
+                <div class="col-lg-5">
+                    <ui-select multiple ng-model="vm.movie.cast" theme="bootstrap" title="Choose movie cast" name="cast"
+                               id="cast" reset-search-input="true" data-ng-required="true">
+                        <ui-select-match placeholder="Select actors...">{{$item.firstName}}&nbsp;{{$item.lastName}}
+                        </ui-select-match>
+                        <ui-select-choices repeat="person.id as person in vm.people">
+                            {{person.firstName}}&nbsp;{{person.lastName}}
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="directors" class="col-lg-4 control-label">
+                    Directors
+                </label>
+
+                <div class="col-lg-5">
+                    <ui-select multiple ng-model="vm.movie.directors" theme="bootstrap" title="Choose movie directors"
+                               name="directors" id="directors" reset-search-input="true" data-ng-required="true">
+                        <ui-select-match placeholder="Select actors...">{{$item.firstName}}&nbsp;{{$item.lastName}}
+                        </ui-select-match>
+                        <ui-select-choices repeat="person.id as person in vm.people">
+                            {{person.firstName}}&nbsp;{{person.lastName}}
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="releaseYear" class="col-lg-4 control-label">
+                    Release Year
+                </label>
+
+                <div class="col-lg-5">
+                    <input type="number" class="input-sm form-control" data-ng-model="vm.movie.releaseYear"
+                           name="releaseYear" id="releaseYear" data-ng-required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="grossIncome" class="col-lg-4 control-label">
+                    Groos income
+                </label>
+
+                <div class="col-lg-5">
+                    <input type="number" class="input-sm form-control" data-ng-model="vm.movie.grossIncome"
+                           name="grossIncome" id="grossIncome" data-ng-required="false">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-3">
+        <div class="thumbnail" style="height: 150px;">
+            <img ng-src="{{vm.movie.image}}" style="height: 100%; width: 100%;">
+        </div>
+        <div class="text-center"><b>Movie cover preview</b></span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <button class="btn btn-primary" data-ng-disabled="vm.actorForm.$invalid"
+                data-ng-bind="vm.movie.id ? 'Update' : 'Create'" data-ng-click="vm.create()"></button>
+        <a class="btn btn-danger" href="#/">Cancel</a>
+    </div>
+</div>
